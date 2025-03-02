@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plagiarism-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: plagiarism-frontend
+  template:
+    metadata:
+      labels:
+        app: plagiarism-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: your-dockerhub-user/plagiarism-frontend:latest
+        ports:
+        - containerPort: 3000
